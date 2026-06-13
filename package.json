@@ -1,10 +1,31 @@
 {
   "name": "tawo",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "description": "Cali Performance Detailing AI Receptionist",
+  "workspaces": [
+    "packages/backend",
+    "packages/frontend",
+    "packages/shared"
+  ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm-run-all --parallel dev:backend dev:frontend",
+    "dev:backend": "npm run dev -w packages/backend",
+    "dev:frontend": "npm run dev -w packages/frontend",
+    "build": "npm-run-all build:shared build:backend build:frontend",
+    "build:shared": "npm run build -w packages/shared",
+    "build:backend": "npm run build -w packages/backend",
+    "build:frontend": "npm run build -w packages/frontend",
+    "test": "npm-run-all test:shared test:backend test:frontend",
+    "test:shared": "npm run test -w packages/shared",
+    "test:backend": "npm run test -w packages/backend",
+    "test:frontend": "npm run test -w packages/frontend",
+    "lint": "npm-run-all lint:shared lint:backend lint:frontend",
+    "lint:shared": "npm run lint -w packages/shared",
+    "lint:backend": "npm run lint -w packages/backend",
+    "lint:frontend": "npm run lint -w packages/frontend",
+    "format": "prettier --write \"packages/**/*.{js,ts,tsx,json,css}\"",
+    "format:check": "prettier --check \"packages/**/*.{js,ts,tsx,json,css}\""
   },
   "repository": {
     "type": "git",
@@ -13,17 +34,16 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/tawabshirzai63/tawo/issues"
   },
   "homepage": "https://github.com/tawabshirzai63/tawo#readme",
-  "dependencies": {
-    "body-parser": "^2.2.2",
-    "dotenv": "^17.4.2",
-    "express": "^5.2.1",
-    "googleapis": "^173.0.0",
-    "moment": "^2.30.1",
-    "sqlite3": "^6.0.1"
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "prettier": "^3.4.2",
+    "typescript": "^5.7.3"
+  },
+  "engines": {
+    "node": ">=20.0.0"
   }
 }
