@@ -1,0 +1,33 @@
+# GitHub CODEOWNERS File
+# Reflects the team structure and review assignments defined in the business plan.
+# Order is important; the last matching pattern takes precedence for files matching multiple patterns.
+
+# Fallback Code Owner: Technical Lead reviews everything by default
+*                       @agent-lead
+
+# -----------------------------------------------------------------------------
+# Backend Domain Owners (Backend Engineer)
+# -----------------------------------------------------------------------------
+/src/index.js           @agent-backend-engineer
+/src/db.js              @agent-backend-engineer
+/src/services/          @agent-backend-engineer
+/src/models/            @agent-backend-engineer
+/src/controllers/       @agent-backend-engineer
+/package.json           @agent-backend-engineer @agent-frontend-engineer
+/package-lock.json      @agent-backend-engineer @agent-frontend-engineer
+
+# -----------------------------------------------------------------------------
+# Frontend Domain Owners (Frontend Engineer)
+# -----------------------------------------------------------------------------
+/src/public/            @agent-frontend-engineer
+/src/components/        @agent-frontend-engineer
+/src/views/             @agent-frontend-engineer
+/src/styles/            @agent-frontend-engineer
+/src/assets/            @agent-frontend-engineer
+
+# -----------------------------------------------------------------------------
+# Testing & CI Domain Owners (QA Engineer)
+# -----------------------------------------------------------------------------
+/tests/                 @agent-qa-engineer
+/scripts/               @agent-qa-engineer
+/.github/workflows/     @agent-qa-engineer
